@@ -4,8 +4,6 @@ import javax.management.RuntimeErrorException;
 
 public class RedBlackTree  <T extends Comparable<T>, V>implements IRedBlackTree<T,V> {
     INode<T,V> root;
-    int size=0;
-    boolean isDeleted = false ;
     public RedBlackTree() {
         this.root = new Node(null,null,INode.BLACK);
     }
@@ -50,7 +48,6 @@ public class RedBlackTree  <T extends Comparable<T>, V>implements IRedBlackTree<
             n.setColor(INode.BLACK);
             n.setRightChild(new Node(null,null,INode.BLACK));
             n.setLeftChild(new Node(null,null,INode.BLACK));
-            size++;
             return;
         }
 
@@ -78,7 +75,6 @@ public class RedBlackTree  <T extends Comparable<T>, V>implements IRedBlackTree<
         n.setLeftChild(new Node(null,null,INode.BLACK));
         //now the new node in it's place and we need to fix the tree
         fixInsert(n);
-        size++;
     }
 
     public void fixInsert(Node n){
